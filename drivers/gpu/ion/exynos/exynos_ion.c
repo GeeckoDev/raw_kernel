@@ -444,9 +444,11 @@ static int ion_exynos_contig_heap_allocate(struct ion_heap *heap,
 	if ((id < 0) || (id >= ION_EXYNOS_MAX_CONTIG_ID))
 		id = 0; /* 0 for "common" area*/
 
+#if 0
 	/* Redirect MFC input region to video for Exynos3470 */
 	if (soc_is_exynos3470() && (id == ION_EXYNOS_ID_MFC_INPUT))
 		id = ION_EXYNOS_ID_VIDEO;
+#endif
 
 	if (!contig_region_is_available(contig_heap, id)) {
 		pr_err("%s: exynos contig heap flag %#lx is not available\n",
@@ -577,9 +579,11 @@ static void ion_exynos_contig_heap_showmem(struct ion_heap *heap)
 		if ((i == 4) || (i == 6))
 			continue;
 
+#if 0
 		/* skip MFC input region that is not available on Exynos3470 */
 		if (soc_is_exynos3470() && (i == ION_EXYNOS_ID_MFC_INPUT))
 			continue;
+#endif
 
 		if (!contig_region_is_available(contig_heap, i))
 			continue;
@@ -615,9 +619,11 @@ static int ion_exynos_contig_heap_debug_show(struct ion_heap *heap,
 		if ((i == 4) || (i == 6))
 			continue;
 
+#if 0
 		/* skip MFC input region that is not available on Exynos3470 */
 		if (soc_is_exynos3470() && (i == ION_EXYNOS_ID_MFC_INPUT))
 			continue;
+#endif
 
 		if (!contig_region_is_available(contig_heap, i))
 			continue;
@@ -668,9 +674,11 @@ static struct ion_heap *ion_exynos_contig_heap_create(struct device *dev)
 	}
 
 	for (i = 1; i < ION_EXYNOS_MAX_CONTIG_ID; i++) {
+#if 0
 		/* skip MFC input region that is not available on Exynos3470 */
 		if (soc_is_exynos3470() && (i == ION_EXYNOS_ID_MFC_INPUT))
 			continue;
+#endif
 
 		if (cma_info(&info, dev,
 				ion_exynos_contig_heap_type[i]))
