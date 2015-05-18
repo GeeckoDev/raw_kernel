@@ -74,13 +74,6 @@ config S5P_SYSTEM_MMU_WA5250ERR
 
 	  If unsure, n here.
 
-config IOVMM
-	bool
-	select GENERIC_ALLOCATOR
-
-config IOMMU_EXYNOS4_API
-	bool
-
 config S3C_DEV_FIMC
 	bool
 	depends on VIDEO_FIMC
