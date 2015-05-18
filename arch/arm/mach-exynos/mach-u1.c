@@ -104,7 +104,6 @@
 #include <mach/dev-sysmmu.h>
 #include <mach/dev.h>
 #include <mach/regs-clock.h>
-#include <mach/exynos-ion.h>
 
 #ifdef CONFIG_FB_S5P_MIPI_DSIM
 #include <mach/mipi_ddi.h>
@@ -7065,9 +7064,6 @@ static struct platform_device *smdkc210_devices[] __initdata = {
 	&SYSMMU_PLATDEV(mfc_l),
 	&SYSMMU_PLATDEV(mfc_r),
 #endif
-#ifdef CONFIG_ION_EXYNOS
-	&exynos_device_ion,
-#endif
 
 	&samsung_asoc_dma,
 #ifndef CONFIG_SND_SOC_SAMSUNG_USE_DMA_WRAPPER
@@ -7749,9 +7745,6 @@ static void __init smdkc210_machine_init(void)
 	s3c_device_fimc2.dev.parent = &exynos4_device_pd[PD_CAM].dev;
 	s3c_device_fimc3.dev.parent = &exynos4_device_pd[PD_CAM].dev;
 #endif
-#endif
-#ifdef CONFIG_ION_EXYNOS
-	exynos_ion_set_platdata();
 #endif
 
 #ifdef CONFIG_EXYNOS4_SETUP_THERMAL
