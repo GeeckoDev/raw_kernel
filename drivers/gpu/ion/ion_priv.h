@@ -19,15 +19,14 @@
 
 #include <linux/ion.h>
 #include <linux/kref.h>
+#include <linux/mm.h>
 #include <linux/mm_types.h>
 #include <linux/mutex.h>
 #include <linux/rbtree.h>
 #include <linux/sched.h>
-#include <linux/shrinker.h>
 #include <linux/types.h>
 #include <linux/semaphore.h>
 #include <linux/vmalloc.h>
-#include <linux/dma-direction.h>
 #include <linux/dma-buf.h>
 #include <asm/cacheflush.h>
 

@@ -18,7 +18,6 @@
 #define _LINUX_ION_H
 
 #include <linux/types.h>
-#include <linux/dma-direction.h>
 #include <linux/dma-buf.h>
 
 #define ION_IOVMM_FIXMAP_ID	15
